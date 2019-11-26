@@ -1,0 +1,14 @@
+---
+archivesFolder: archives
+binaryDestination: /usr/local/bin
+userHomeFolder: /home/jenkins
+backRepoName: protask_backend
+backendRepoFolder: "{{ userHomeFolder }}/taskbackendfolder"
+frontRepoName: protask_front
+frontRepoFolder: "{{ userHomeFolder }}/taskfrontfolder"
+sbsRepoName: sbs-ws-server
+nodeFolder: "{{ userHomeFolder }}/tasknodeFolder"
+nodeServiceName: /app1/protasksbswssrv
+nodeServiceUser: app1
+
+...

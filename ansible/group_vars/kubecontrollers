@@ -1,0 +1,15 @@
+---
+userHomeFolder: /home/jenkins
+backRepoName: reactor
+backendRepoFolder: "{{ userHomeFolder }}/backendfolder"
+frontRepoName: reactive-smb
+frontRepoFolder: "{{ userHomeFolder }}/frontfolder"
+sbsRepoName: sbs-ws-server
+nodeFolder: "{{ userHomeFolder }}/nodeFolder"
+nodeServiceName: /app/sbswssrv
+nodeServiceUser: appuser
+frontDestPubHtmlFolder: "{{ publicHtmlFolder }}/app.{{ domainName }}"
+replaceToken: 31c873b5-5dc1-663f-acb8-30a2836044c7
+vaultNewTokenFileName: new_token
+
+...

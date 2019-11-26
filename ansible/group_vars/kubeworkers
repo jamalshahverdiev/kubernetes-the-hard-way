@@ -1,0 +1,18 @@
+---
+userHomeFolder: /home/jenkins
+backRepoName: protask_backend
+backendRepoFolder: "{{ userHomeFolder }}/taskbackendfolder"
+frontRepoName: protask_front
+frontRepoFolder: "{{ userHomeFolder }}/taskfrontfolder"
+sbsRepoName: sbs-ws-server
+nodeFolder: "{{ userHomeFolder }}/tasknodeFolder"
+nodeServiceName: /app1/protasksbswssrv
+nodeServiceUser: app1
+googleClientEmail: google-play-console@api-6907497197129738802-152673.iam.gserviceaccount.com
+appleSecret: 9e15734f275e4e9ca65c60fd0e995b86
+APIHOST: protask.az
+publicHtmlFolder: /var/www/public_html
+domainName: "{{ APIHOST }}"
+frontSmokeDomain: "{{ domainName }}"
+
+...
