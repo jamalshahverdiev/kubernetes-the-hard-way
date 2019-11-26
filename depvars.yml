@@ -1,13 +1,3 @@
 ---
 sshportPoint: 10610
 subnet: 10.20.33.
-certpass: 
-domainname: 
-dbUser: 
-dbPass: 
-dbName: 
-sipUserPass: 
-sipDomain: 
-gitDomain:
-gitUser: 
-gitPass: 

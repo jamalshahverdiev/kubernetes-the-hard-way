@@ -41,5 +41,6 @@ Vagrant.configure("2") do |apilb|
     end
     apilb.vm.provision "shell", path: "scripts/debGLscript.sh"
     apilb.vm.provision "shell", path: "scripts/installAnsible.sh"
+    apilb.vm.provision "shell", path: "scripts/executeAnsible.sh"
   end
 end

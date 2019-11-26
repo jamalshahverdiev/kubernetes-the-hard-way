@@ -1,14 +1,15 @@
 ---
 archivesFolder: archives
 binaryDestination: /usr/local/bin
-userHomeFolder: /home/jenkins
-backRepoName: protask_backend
-backendRepoFolder: "{{ userHomeFolder }}/taskbackendfolder"
-frontRepoName: protask_front
-frontRepoFolder: "{{ userHomeFolder }}/taskfrontfolder"
-sbsRepoName: sbs-ws-server
-nodeFolder: "{{ userHomeFolder }}/tasknodeFolder"
-nodeServiceName: /app1/protasksbswssrv
-nodeServiceUser: app1
+userHomeFolder: /home/vagrant
+CNAME: 10.32.0.1,127.0.0.1,localhost,kubernetes.default,apilb.kubernetes.loc,kubeworker1.kubernetes.loc,10.20.33.21,kubeworker2.kubernetes.loc,10.20.33.22,kubeworker3.kubernetes.loc,10.20.33.23
+#backRepoName: protask_backend
+#backendRepoFolder: "{{ userHomeFolder }}/taskbackendfolder"
+#frontRepoName: protask_front
+#frontRepoFolder: "{{ userHomeFolder }}/taskfrontfolder"
+#sbsRepoName: sbs-ws-server
+#nodeFolder: "{{ userHomeFolder }}/tasknodeFolder"
+#nodeServiceName: /app1/protasksbswssrv
+#nodeServiceUser: app1
 
 ...
