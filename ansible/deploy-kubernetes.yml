@@ -1,53 +1,21 @@
 ---
-- hosts: linux
+#- hosts: linux
+#  gather_facts: true
+#  tasks:
+#    - name: Ansible copy file force
+#      copy:
+#        src: templates/motd
+#        dest: /etc/motd
+#        force: yes
+#
+#- hosts: apilbs
+#  gather_facts: true
+#  tasks:
+#    - include: included/apilbdeploy.yml
+
+- hosts: kubeworkers
   gather_facts: true
   tasks:
-    - name: Ansible copy file force
-      copy:
-        src: templates/motd
-        dest: /etc/motd
-        force: yes
+    - include: included/workerDeploy.yml
 
-- hosts: apilbs
-  gather_facts: true
-  tasks:
-    - include: included/apilbdeploy.yml
-
-#    - include: included/cloneOrPullNodeSources.yml
-#      tags:
-#        - cloneOrPullNodeSources
-#
-#    - include: included/createNodeService.yml
-#      tags:
-#        - createNodeService
-#      register: createNodeService
-#
-#    - name: Stop Nginx
-#      systemd:
-#        name: nginx
-#        state: stopped
-#      tags:
-#        - stopNginx
-#      register: stopNginx
-#
-#    - include: included/cloneFront.yml 
-#      
-#    - include: included/frontDeploy.yml
-#      tags:
-#        - frontDeploy
-#      register: cloneFrontCodes
-#      when: cloneFrontRepo is success
-#
-#    - include: included/cloneBackend.yml
-#
-#    - include: included/backendDeploy.yml
-#      tags: 
-#        - backendDeploy
-#      register: backendDeploy
-#      when: stopNginx is success
-#
-#    - include: included/frontBackSmokeTests.yml
-#
-#  handlers:
-#    - include: handlers/allhandlers.yml
 ...
