@@ -1,7 +1,5 @@
 ---
 - name: Copy certificates to the Worker nodes
-#  debug:
-#    msg: "This server is: {{ inventory_hostname }}"
 #  when: inventory_hostname in groups['kubeworkers']
   copy:
     src: "{{userHomeFolder}}/{{item}}"
@@ -11,4 +9,11 @@
     - "{{inventory_hostname}}.kubernetes.loc-key.pem"
     - "{{inventory_hostname}}.kubernetes.loc.pem"
 
+- name: Copy KubeConfig to the Worker nodes
+  copy:
+    src: "{{userHomeFolder}}/{{item}}"
+    dest: "{{userHomeFolder}}/"
+  with_items:
+    - "{{inventory_hostname}}.kubernetes.loc.kubeconfig"
+    - kube-proxy.kubeconfig 
 ...

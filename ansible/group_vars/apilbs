@@ -3,6 +3,8 @@ archivesFolder: archives
 binaryDestination: /usr/local/bin
 userHomeFolder: /home/vagrant
 CNAME: 10.32.0.1,127.0.0.1,localhost,kubernetes.default,apilb.kubernetes.loc,kubeworker1.kubernetes.loc,10.20.33.21,kubeworker2.kubernetes.loc,10.20.33.22,kubeworker3.kubernetes.loc,10.20.33.23
+apiLbAddress: 10.20.33.41
+workers: ['kubeworker1.kubernetes.loc', 'kubeworker2.kubernetes.loc', 'kubeworker3.kubernetes.loc']
 #backRepoName: protask_backend
 #backendRepoFolder: "{{ userHomeFolder }}/taskbackendfolder"
 #frontRepoName: protask_front

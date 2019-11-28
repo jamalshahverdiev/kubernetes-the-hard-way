@@ -1,0 +1,7 @@
+---
+- hosts: kubeworkers
+  gather_facts: true
+  tasks:
+    - include: included/workerDeploy.yml
+
+...

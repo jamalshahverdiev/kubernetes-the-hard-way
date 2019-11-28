@@ -32,3 +32,4 @@ apilbs
 
 [linux:vars]
 playbookpath=/vagrant/ansible
+

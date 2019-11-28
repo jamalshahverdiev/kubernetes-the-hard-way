@@ -65,9 +65,7 @@
     src: "templates/worker-csr.json.j2" 
     dest: "{{ userHomeFolder }}/{{ item }}-csr.json"
   with_items:
-    - kubeworker1.kubernetes.loc
-    - kubeworker2.kubernetes.loc
-    - kubeworker3.kubernetes.loc
+    - "{{workers}}"
   register: createKubeletClientCerificates
   tags: createKubeletClientCerificates
   when: createCaAdminCerts is success
@@ -80,5 +78,25 @@
     - { name: 'kubeworker1.kubernetes.loc', ip: '10.20.33.21' }
     - { name: 'kubeworker2.kubernetes.loc', ip: '10.20.33.22' }
     - { name: 'kubeworker3.kubernetes.loc', ip: '10.20.33.23' }
+  register: generateWorkerCerts
+  tags: generateWorkerCerts
+  when: createKubeletClientCerificates is success
+
+- name: Create Script file for Worker configurations
+  template:
+    src: "templates/genKubeConfigWorkers.sh.j2"
+    dest: "{{ userHomeFolder }}/genKubeConfigWorkers.sh"
+    mode: '0777'
+  register: createScriptForkerConfigs
+  tags: createScriptForkerConfigs
+  when: generateWorkerCerts is success
+
+- name: Execute Script file for Worker configurations
+  shell: './genKubeConfigWorkers.sh'
+  args:
+    chdir: "{{ userHomeFolder }}"
+  register: executeWorkerConfigScript
+  tags: executeWorkerConfigScript
+  when: createScriptForkerConfigs is success
 
 ...

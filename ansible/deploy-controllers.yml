@@ -1,0 +1,7 @@
+---
+- hosts: kubecontrollers
+  gather_facts: true
+  tasks:
+    - include: included/controllerDeploy.yml
+
+...
