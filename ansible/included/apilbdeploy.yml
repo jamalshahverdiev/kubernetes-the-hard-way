@@ -41,6 +41,7 @@
     - kube-scheduler-csr.json 
     - kubernetes-csr.json 
     - service-account-csr.json
+    - kube-scheduler.yaml
   register: copyCaAdminFiles
   tags: copyCaAdminFiles
 

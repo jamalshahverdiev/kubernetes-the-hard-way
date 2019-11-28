@@ -5,4 +5,7 @@ binaryDestination: /usr/local/bin
 archivesFolder: archives
 ETCD_NAME: "{{inventory_hostname}}.kubernetes.loc"
 INITIAL_CLUSTER: kubecontroller1.kubernetes.loc=https://10.20.33.11:2380,kubecontroller2.kubernetes.loc=https://10.20.33.12:2380,kubecontroller3.kubernetes.loc=https://10.20.33.13:2380
+kubefolders: ['/etc/kubernetes/config', '/var/lib/kubernetes', '/etc/etcd', '/var/lib/etcd', '/var/log/kubernetes']
+controllerIPs: ['10.20.33.11', '10.20.33.12', '10.20.33.13']
+
 ...

@@ -27,6 +27,12 @@ then
     apt update && apt-get install -y docker-ce docker-ce-cli containerd.io
 fi
 
+if [ $(hostname -f) != 'apilb' ]
+then
+    sed -i "11 {s/^/#/}" /etc/fstab
+    swapoff -a
+fi 
+
 cat <<EOF > /etc/hosts
 127.0.0.1       localhost
 10.20.33.41     apilb apilb.kubernetes.loc
