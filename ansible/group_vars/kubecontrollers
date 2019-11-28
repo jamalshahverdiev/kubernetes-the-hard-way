@@ -3,4 +3,6 @@ userHomeFolder: /home/vagrant
 etcdConfigPath: /etc/etcd
 binaryDestination: /usr/local/bin
 archivesFolder: archives
+ETCD_NAME: "{{inventory_hostname}}.kubernetes.loc"
+INITIAL_CLUSTER: kubecontroller1.kubernetes.loc=https://10.20.33.11:2380,kubecontroller2.kubernetes.loc=https://10.20.33.12:2380,kubecontroller3.kubernetes.loc=https://10.20.33.13:2380
 ...
