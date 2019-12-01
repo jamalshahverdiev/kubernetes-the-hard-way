@@ -24,13 +24,17 @@
 
 - name: Unarchive Kuberenetes Binary files
   unarchive:
-    src: "{{ archivesFolder }}/{{ item }}"
-    dest: "{{ binaryDestination }}/"
+    src: "{{ archivesFolder }}/{{ item.src }}"
+    dest: "{{ item.dst }}/"
   with_items:
-    - containerd.tar.bz2
-    - kubelet.tar.bz2
-    - kubectl.tar.bz2
-    - kube-proxy.tar.bz2
+    - { src: 'kubelet.tar.bz2', dst: '{{ binaryDestination }}' }
+    - { src: 'kubectl.tar.bz2', dst: '{{ binaryDestination }}' }
+    - { src: 'kube-proxy.tar.bz2', dst: '{{ binaryDestination }}' }
+    - { src: 'runc.tar.bz2', dst: '{{ binaryDestination }}' }
+    - { src: 'runsc.tar.bz2', dst: '{{ binaryDestination }}' }
+    - { src: 'crictl.tar.bz2', dst: '{{ binaryDestination }}' }
+    - { src: 'cniplugins.tar.bz2', dst: '/opt/cni/bin' }
+    - { src: 'containerd.tar.bz2', dst: '/bin' }
   tags:
     - unarchiveKubernetesFiles
   register: unarchiveKubernetesFiles
