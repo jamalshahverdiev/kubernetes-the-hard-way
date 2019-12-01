@@ -1,12 +1,8 @@
 - name: Install Worker Packages
   apt:
-    name: "{{item}}"
+    name: ['socat', 'conntrack', 'ipset']
     state: present
     update_cache: true
-  with_items:
-    - socat
-    - conntrack
-    - ipset
   register: installPacks
   tags: installPacks
 
