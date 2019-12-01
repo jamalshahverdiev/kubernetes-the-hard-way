@@ -11,6 +11,6 @@
 - hosts: apilbs
   gather_facts: true
   tasks:
+    - include: included/configureLB.yml
     - include: included/apilbdeploy.yml
-
 ...

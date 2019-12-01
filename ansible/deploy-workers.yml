@@ -2,6 +2,7 @@
 - hosts: kubeworkers
   gather_facts: true
   tasks:
+    - include: included/installWorkerPacks.yml
     - include: included/workerDeploy.yml
 
 ...

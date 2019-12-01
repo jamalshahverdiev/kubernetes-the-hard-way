@@ -4,8 +4,8 @@ Documentation=https://github.com/kubernetes/kubernetes
 
 [Service]
 ExecStart=/usr/local/bin/kube-controller-manager \
-  --bind-address={{ansible_eth1.ipv4.address}} \
-  --bind-address=127.0.0.1 \
+#  --bind-address={{ansible_eth1.ipv4.address}} \
+  --bind-address=0.0.0.0 \
   --cluster-cidr=10.200.0.0/16 \
   --cluster-name=kubernetes \
   --cluster-signing-cert-file=/var/lib/kubernetes/ca.pem \

@@ -1,6 +1,5 @@
 ---
 - name: Copy certificates to the Worker nodes
-#  when: inventory_hostname in groups['kubeworkers']
   copy:
     src: "{{userHomeFolder}}/{{item}}"
     dest: "{{userHomeFolder}}/"
@@ -8,6 +7,9 @@
     - ca.pem 
     - "{{inventory_hostname}}.kubernetes.loc-key.pem"
     - "{{inventory_hostname}}.kubernetes.loc.pem"
+  register: copyCertsToWorkers
+  tags: copyCertsToWorkers
+  when: installPacks is success and createKubeFolders is success
 
 - name: Copy KubeConfig to the Worker nodes
   copy:
@@ -15,5 +17,23 @@
     dest: "{{userHomeFolder}}/"
   with_items:
     - "{{inventory_hostname}}.kubernetes.loc.kubeconfig"
-    - kube-proxy.kubeconfig 
+    - kube-proxy.kubeconfig
+  register: copyConfigsToWorkers
+  tags: copyConfigsToWorkers
+  when: installPacks is success and createKubeFolders is success
+
+- name: Unarchive Kuberenetes Binary files
+  unarchive:
+    src: "{{ archivesFolder }}/{{ item }}"
+    dest: "{{ binaryDestination }}/"
+  with_items:
+    - containerd.tar.bz2
+    - kubelet.tar.bz2
+    - kubectl.tar.bz2
+    - kube-proxy.tar.bz2
+  tags:
+    - unarchiveKubernetesFiles
+  register: unarchiveKubernetesFiles
+  when: copyCertsToWorkers is success and copyConfigsToWorkers is success
+
 ...

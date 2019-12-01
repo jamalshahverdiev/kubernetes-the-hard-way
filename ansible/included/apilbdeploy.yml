@@ -18,12 +18,7 @@
     src: "{{ archivesFolder }}/{{ item }}"
     dest: "{{ binaryDestination }}/"
   with_items:
-#    - kube-apiserver.tar.bz2
-#    - kube-controller-manager.tar.bz2
     - kubectl.tar.bz2
-#    - kubelet.tar.bz2
-#    - kube-proxy.tar.bz2
-#    - kube-scheduler.tar.bz2
   tags:
     - unarchiveKubeFiles
   register: unarchiveKubeFiles

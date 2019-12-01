@@ -2,6 +2,6 @@
 - hosts: kubecontrollers
   gather_facts: true
   tasks:
+    - include: included/controllerNginx.yml
     - include: included/controllerDeploy.yml
-
 ...

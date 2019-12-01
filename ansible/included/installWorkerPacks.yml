@@ -1,0 +1,26 @@
+- name: Install Worker Packages
+  apt:
+    name: "{{item}}"
+    state: present
+    update_cache: true
+  with_items:
+    - socat
+    - conntrack
+    - ipset
+  register: installPacks
+  tags: installPacks
+
+- name: Creates Services Directories of workers
+  file:
+    path: "{{item}}"
+    state: directory
+  with_items:
+    - /etc/cni/net.d 
+    - /opt/cni/bin 
+    - /var/lib/kubelet 
+    - /var/lib/kube-proxy 
+    - /var/lib/kubernetes
+    - /var/run/kubernetes
+    - /etc/containerd
+  tags: createKubeFolders
+  register: createKubeFolders

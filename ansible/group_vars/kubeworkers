@@ -1,5 +1,6 @@
 ---
 binaryDestination: /usr/local/bin
 userHomeFolder: /home/vagrant
+archivesFolder: archives
 
 ...
