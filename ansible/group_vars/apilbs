@@ -2,7 +2,7 @@
 archivesFolder: archives
 binaryDestination: /usr/local/bin
 userHomeFolder: /home/vagrant
-CNAME: 10.32.0.1,10.20.33.11,kubecontroller1.kubernetes.loc,10.20.33.12,kubecontroller2.kubernetes.loc,10.20.33.13,kubecontroller3.kubernetes.loc,apilb.kubernetes.loc,127.0.0.1,localhost,kubernetes.default
+CNAME: 10.32.0.1,10.20.33.11,kubecontroller1.kubernetes.loc,10.20.33.12,kubecontroller2.kubernetes.loc,10.20.33.13,kubecontroller3.kubernetes.loc,10.20.33.41,apilb.kubernetes.loc,127.0.0.1,localhost,kubernetes.default
 apiLbAddress: 10.20.33.41
 workers: ['kubeworker1.kubernetes.loc', 'kubeworker2.kubernetes.loc', 'kubeworker3.kubernetes.loc']
 controllerIps: ['10.20.33.11', '10.20.33.12', '10.20.33.13']

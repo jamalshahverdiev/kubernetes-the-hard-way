@@ -6,6 +6,17 @@
   register: installPacks
   tags: installPacks
 
+- name: Enable IPForward in workers
+  sysctl:
+    name: net.ipv4.conf.all.forwarding 
+    value: '1'
+    sysctl_set: yes
+    state: present
+    reload: yes
+  register: enableIPforward
+  tags: enableIPforward
+  when: installPacks is success
+
 - name: Creates Services Directories of workers
   file:
     path: "{{item}}"
@@ -16,7 +27,9 @@
     - /var/lib/kubelet 
     - /var/lib/kube-proxy 
     - /var/lib/kubernetes
+    - /var/log/kubernetes
     - /var/run/kubernetes
     - /etc/containerd
   tags: createKubeFolders
   register: createKubeFolders
+  when: enableIPforward is success
