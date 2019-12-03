@@ -23,6 +23,17 @@ then
     swapoff -a
 fi 
 
+if [ $(hostname -f) == kubeworker1 -o $(hostname -f) == kubeworker2 -o $(hostname -f) == kubeworker3 ]
+then
+    apt install -y python-pip
+    pip install hostsman dnspython
+    apt-get install -y apt-transport-https ca-certificates curl gnupg2 software-properties-common
+    curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
+    add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
+    apt update && apt-get install -y docker-ce docker-ce-cli containerd.io
+#    apt update && apt-get install -y docker-ce-cli 
+fi
+
 cat <<EOF > /etc/hosts
 127.0.0.1       localhost
 10.20.33.41     apilb apilb.kubernetes.loc

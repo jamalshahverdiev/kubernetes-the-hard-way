@@ -18,6 +18,7 @@ restoreSnapshots(){
     do
         vagrant.exe snapshot restore $machine $machine
     done
+    vagrant provision apilb
 }
 
 
